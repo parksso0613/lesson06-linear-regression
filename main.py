@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression 
 # Gowun Dodum 구글 폰트 적용 및 전반적인 CSS 스타일 지정
 st.markdown("""
     <style>
@@ -165,7 +165,7 @@ with c1:
     """, unsafe_allow_html=True)
 with c2:
     st.markdown(f"""
-        <div class="metric-card" style="background: linear-gradient(135deg, #FFFFF 0%, #00000 100%);">
+        <div class="metric-card" style="background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);">
             <div class="metric-label">최근 20년 (2006~2025) 기준</div>
             <div class="metric-value">+{slope_recent_per_century:.2f} ℃ / 100년</div>
             <div style="margin-top: 0.3rem; font-size: 1.1rem; opacity: 0.9;">최근 가속화된 온난화 속도</div>
