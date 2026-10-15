@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
+from sklearn.linear_model import LinearRegression
 # Gowun Dodum 구글 폰트 적용 및 전반적인 CSS 스타일 지정
 st.markdown("""
     <style>
