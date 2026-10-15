@@ -11,20 +11,30 @@ st.set_page_config(
     layout="wide"
 )
 
+# Noto Sans KR 구글 폰트 적용 및 전반적인 CSS 스타일 지정
 st.markdown("""
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+    html, body, [class*="css"], .stMarkdown {
+        font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    }
+
     .main-header {
+        font-family: 'Noto Sans KR', sans-serif !important;
         font-size: 2.5rem;
         font-weight: 700;
         color: #1E3A8A;
         margin-bottom: 0.5rem;
     }
     .sub-header {
+        font-family: 'Noto Sans KR', sans-serif !important;
         font-size: 1.1rem;
         color: #4B5563;
         margin-bottom: 2rem;
     }
     .metric-card {
+        font-family: 'Noto Sans KR', sans-serif !important;
         background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
         padding: 2rem;
         border-radius: 1rem;
@@ -33,16 +43,19 @@ st.markdown("""
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
     .metric-value {
+        font-family: 'Noto Sans KR', sans-serif !important;
         font-size: 3.5rem;
         font-weight: 800;
         margin-top: 0.5rem;
     }
     .metric-label {
+        font-family: 'Noto Sans KR', sans-serif !important;
         font-size: 1.2rem;
         font-weight: 500;
         opacity: 0.9;
     }
     .info-box {
+        font-family: 'Noto Sans KR', sans-serif !important;
         background-color: #F3F4F6;
         padding: 1.5rem;
         border-radius: 0.75rem;
@@ -57,7 +70,6 @@ def load_data():
     try:
         df = pd.read_csv(url, encoding='utf-8')
     except Exception as e:
-        # Fallback encoding if utf-8 fails
         df = pd.read_csv(url, encoding='cp949')
     return df
 
@@ -110,9 +122,6 @@ selected_year = st.sidebar.slider(
     value=2026,
     step=1
 )
-
-# Main content columns
-col1, col2 = st.sidebar, None # Layout helper
 
 st.markdown("### 📊 분석 데이터 요약")
 m1, m2, m3, m4 = st.columns(4)
@@ -199,7 +208,10 @@ fig.update_layout(
     hovermode="x unified",
     template="plotly_white",
     height=550,
-    margin=dict(l=20, r=20, t=50, b=20)
+    margin=dict(l=20, r=20, t=50, b=20),
+    font=dict(
+        family="Noto Sans KR, sans-serif"
+    )
 )
 
 st.plotly_chart(fig, use_container_width=True)
